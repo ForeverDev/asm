@@ -1,5 +1,3 @@
-all: main
-
 main: main.o mainasm.o
 	g++ main.o mainasm.o -o main
 	rm -Rf *.o
