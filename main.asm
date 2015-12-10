@@ -2,7 +2,6 @@ global _compare_strings
 
 _compare_strings:
   mov rdx, 0
-  mov rcx, 1000
   check_loop:
     mov al, [rdi + rdx]
     mov bl, [rsi + rdx]
