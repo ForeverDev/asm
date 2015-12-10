@@ -1,16 +1,23 @@
-global _add
-global _increase
+global _compare_strings
 
-segment .text
-_add:
-  mov         rax, rdi
-  add         rax, rsi
+_compare_strings:
+  mov rdx, 0
+  mov rcx, 1000
+  check_loop:
+    mov al, [rdi + rdx]
+    mov bl, [rsi + rdx]
+    inc rdx
+    cmp al, bl
+    jne DIF
+    cmp al, 0
+    je SAME
+    jmp check_loop
+  DIF:
+    mov rax, 0
+    jmp DONE
+  SAME:
+    mov rax, 1
+  DONE:
   ret
 
-_increase:
-  mov         rax, 0
-  mov         rcx, rdi
-  increase_loop:
-    inc       rax
-    loop      increase_loop
-  ret
+  mov rax, 1

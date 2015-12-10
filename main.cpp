@@ -1,11 +1,14 @@
 #include <iostream>
 
-extern "C" int add(int a, int b);
-extern "C" int increase(int a);
+
+extern "C" int compare_strings(const char* c, const char* c2);
 
 int main(int argc, char* argv[]) {
 
-  std::cout << increase(10) << std::endl;
+  const char* c = "hello";
+  const char* c2 = "hello";
+
+  std::cout << compare_strings(c, c2) << std::endl;
 
   return 0;
 }
